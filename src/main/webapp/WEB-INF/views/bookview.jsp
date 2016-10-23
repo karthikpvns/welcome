@@ -56,18 +56,23 @@ body {
 <th> TITLE</th>
 <th> CategoryName</th>
 <th>Price</th>
+<c:if test="${pageContext.request.userPrincipal.name == null}">
+	<th  > View Info </th>
+</c:if>
+
  <c:if test="${pageContext.request.userPrincipal.name!=null}">
                        <security:authorize   access="hasRole('ROLE_ADMIN')" >
                       <th> View/Delete/edit</th>
                        </security:authorize>
-                  <security:authorize  access="hasRole('ROLE_USER')"  >
+                   <security:authorize  access="hasRole('ROLE_USER')"  >
                   	<th  > View Info </th>
                   
-                  </security:authorize>
+                  </security:authorize> 
                                      
                        </c:if>
 
 </tr>
+
 </thead>
 
 

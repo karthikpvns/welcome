@@ -22,6 +22,8 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
 	
 	<style >
 	 body {
@@ -36,7 +38,7 @@
 <body >
 <br>
       <h2 align="center">View The Details Of Book.</h2>
-<div class="container">
+<div  class="container"  ng-app="app" ng-controller="myController" >
 <!--   <div class="row test"> -->
     <div class="col-md-4">
       <c:url value="/resources/images/${book.isbn }.png" var="src" />
@@ -46,12 +48,21 @@
            <br>
            <p> ISBN :${book.isbn}</p>
            <p> TITLE :${book.title}</p>
+           <p> PRICE:${book.price} </p>
            <p> CATEGORY :${book.category.categoryname}</p>
- 
+            <c:url value="/login" var="url"></c:url>
+            <c:if test="${pageContext.request.userPrincipal.name == null}">
+            <p><a href="${url}" class="btn btn-warning btn-large" ><span class="glyphicon glyphicon-shopping-cart"></span></a></p>
+            </c:if>
+      <security:authorize access="hasRole('ROLE_USER')"> 
+    <p><a href="#"  ng-click="addToCart(${book.isbn})" class="btn btn-warning btn-large" ><span class="glyphicon glyphicon-shopping-cart"></span></a></p>
+              </security:authorize>  
+            <br>
+            <a href="<c:url value="/booksListAngular"></c:url>">Back</a>
+                
     </div>
   </div>
 </div>
-
-
+	<script src="<c:url value="/resources/js/controller.js"></c:url>"></script>
 </body>
 </html>

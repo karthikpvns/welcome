@@ -54,6 +54,10 @@ public class BookController {
 	public String Aboutus(){
 		return "about";
 	}
+	@RequestMapping("/Sample5")
+	public String Sample5(){
+		return "Sample5";
+	}
 	
 	@RequestMapping("/getBooksList")
 	public @ResponseBody List<Book> getBooksListInJSON(){

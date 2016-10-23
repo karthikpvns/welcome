@@ -144,13 +144,15 @@
                             <li> <a href="<c:url value="/logout" />">Logout</a></li>
 <%--                            <li><a href="<c:url value="/j_spring_security_logout"  var="x" />">Logout1</a></li> --%>
 
-                            <c:if test="${pageContext.request.userPrincipal.name != 'admin'}">
+                            <c:if test="${pageContext.request.userPrincipal.name != null}">
+                             <security:authorize  access="hasRole('ROLE_USER')">
                                 <li><a href="<c:url value="/customer/cart" />">Cart</a></li>
+                                 </security:authorize>
                             </c:if>
 
-                            <c:if test="${pageContext.request.userPrincipal.name == 'admin'}">
+                           <%--  <c:if test="${pageContext.request.userPrincipal.name == 'kar'}">
                                 <li><a href="<c:url value="/admin" />">Admin</a></li>
-                            </c:if>
+                            </c:if> --%>
 
                         </c:if>
 

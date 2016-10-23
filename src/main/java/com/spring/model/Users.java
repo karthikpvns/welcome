@@ -2,6 +2,7 @@ package com.spring.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
@@ -9,11 +10,17 @@ import javax.persistence.OneToOne;
 public class Users {
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int usersId;
 	private String username;
 	private String password;
 	private Boolean enabled;
+	public Customer getCustomer() {
+		return customer;
+	}
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
 	@OneToOne(mappedBy="users")
   private Customer customer;
 	

@@ -7,6 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="bookcategories")
 public class Category {
@@ -16,6 +18,7 @@ public class Category {
 	private String categoryname;
 	
 	@OneToMany(mappedBy="category")
+	@JsonIgnore
 	List<Book> books;
 	public int getCid() {
 		return cid;

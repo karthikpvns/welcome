@@ -29,12 +29,20 @@ private BillingAddress billingAddress;
 @OneToOne(cascade=CascadeType.ALL)
 @JoinColumn(name="shippingaddressId")
 private ShippingAddress shippingAddress;
-@OneToOne
+@OneToOne(cascade=CascadeType.ALL)
 @JoinColumn(name="cartId")
 private Cart cart;
 
 public int getCustomerId() {
 	return customerId;
+}
+
+public Cart getCart() {
+	return cart;
+}
+
+public void setCart(Cart cart) {
+	this.cart = cart;
 }
 
 public void setCustomerId(int customerId) {

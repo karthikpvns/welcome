@@ -26,11 +26,10 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-<%-- <script src="<c:url value="/resources/js/controller.js"></c:url>"></script> --%>
+<%--  <script src="<c:url value="/resources/js/controller.js"></c:url>"></script>  --%>
 </head>
 <body>
-<div ng-app="app">
-<div ng-controller="myController" ng-init="getBookList()">
+<div ng-app="app" ng-controller="myController" ng-init="getBookList()">
 
 Search :<input type="text" ng-model="SearchCondition" placeholder="Search Book">
         
@@ -43,6 +42,9 @@ Search :<input type="text" ng-model="SearchCondition" placeholder="Search Book">
 <th> TITLE</th>
 <th> CategoryName</th>
 <th>Price</th>
+<c:if test="${pageContext.request.userPrincipal.name == null}">
+	<th  > View Info </th>
+</c:if>
  <c:if test="${pageContext.request.userPrincipal.name!=null}">
                        <security:authorize   access="hasRole('ROLE_ADMIN')" >
                       <th> View/Delete/edit</th>
@@ -56,47 +58,44 @@ Search :<input type="text" ng-model="SearchCondition" placeholder="Search Book">
 
 </tr>
 </thead>
-
+<tbody>
 <tr ng-repeat="x in books|filter:SearchCondition">
-<c:url value="/resources/images/${x.isbn }.png" var="src" />
+<c:url value="/resources/images/{{x.isbn}}.png" var="src" />
 
 <td ><img src="${src}" style="width: 100px" align="middle"/></td>
 
 <%--  <td> <img src="<c:url value="/resources/images/${x.isbn}.png" />" width="10%"/></td> --%>
-  <td><a href="gbyid/${x.isbn}">${x.isbn}</a></td>
-  <td> ${x.title}</td>
-  <td> ${x.category.categoryname}</td>
-  <td>${x.price} </td>
-  <td> <a href="gbyid/${x.isbn}"><span class="glyphicon glyphicon-info-sign"></span></a>
+  <td><a href="gbyid/{{x.isbn}}">{{x.isbn}}</a></td>
+  <td> {{x.title}}</td>
+   <td> {{x.category.categoryname}}</td> 
+  <td>{{x.price}} </td>
+  <td> <a href="gbyid/{{x.isbn}}"><span class="glyphicon glyphicon-info-sign"></span></a>
        <security:authorize   access="hasRole('ROLE_ADMIN')" >
-     / <a href="delete/${x.isbn}"><span class="glyphicon glyphicon-trash"></span></a>
-      / <a href="admin/book/editBook/${x.isbn}"> <span class="glyphicon glyphicon-edit"></span></a>
+     / <a href="delete/{{x.isbn}}"><span class="glyphicon glyphicon-trash"></span></a>
+      / <a href="admin/book/editBook/{{x.isbn}}"> <span class="glyphicon glyphicon-edit"></span></a>
       </security:authorize>
       
       </td>
 </tr>
-
+</tbody>
 </table>
-
-<br><br>
 
 </div>
 </div>
 </div>
 
 <script >
-var app=angular.module('app',[]);
-app.controller('myController',function($scope,$http){
-	$scope.getBookList=function(){
-		$http.get("http://localhost:9080/welcome/getBooksList").then(function(response){
-			$scope.books=response.data;
-		});
-	};
+var app=angular.module("app",[])
+.controller("myController",function($scope,$http){
+	$scope.getBookList = function(){
+		   $http.get('http://localhost:9080/welcome/getBooksList').success(function (data){
+		       $scope.books = data;
+		   });
+		};
 });
 
 
 </script>
-
 
 
 </body>

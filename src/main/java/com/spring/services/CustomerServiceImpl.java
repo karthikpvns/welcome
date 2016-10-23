@@ -37,4 +37,10 @@ public class CustomerServiceImpl implements CustomerServices {
 		return customerDao.getCustomers();
 	}
 
+    @Transactional
+	public Customer getCustomerByUsername(String username) {
+		// TODO Auto-generated method stub
+		return customerDao.getCustomerByUsername(username);
+	}
+
 }
