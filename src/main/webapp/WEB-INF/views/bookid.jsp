@@ -29,7 +29,7 @@
 	 body {
       font: 400 15px/1.8 Lato, sans-serif;
       color: #777;
-      background:whitesmoke;
+      background:#333;
   }
 	
 	</style>
@@ -65,4 +65,5 @@
 </div>
 	<script src="<c:url value="/resources/js/controller.js"></c:url>"></script>
 </body>
+ <%@ include file="footer.jsp" %>
 </html>

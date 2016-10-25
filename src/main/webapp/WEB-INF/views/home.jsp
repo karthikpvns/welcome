@@ -99,6 +99,49 @@
       display: none; /* Hide the carousel text when the screen is less than 600 pixels wide */
     }
   }
+  .bg-1 {
+      background: #2d2d30;
+      color: #bdbdbd;
+  }
+  .bg-1 h3 {color: #fff;}
+  .bg-1 p {font-style: italic;}
+  .list-group-item:first-child {
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+}
+
+.list-group-item:last-child {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+/* Remove border and add padding to thumbnails */
+.thumbnail {
+    padding: 0 0 15px 0;
+    border: none;
+    border-radius: 0;
+}
+
+.thumbnail p {
+    margin-top: 15px;
+    color: #555;
+}
+
+/* Black buttons with extra padding and without rounded borders */
+.btn {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #f1f1f1;
+    border-radius: 0;
+    transition: .2s;
+}
+
+/* On hover, the color of .btn will transition to white with black text */
+.btn:hover, .btn:focus {
+    border: 1px solid #333;
+    background-color: #fff;
+    color: #000;
+}
   </style>
 </head>
 <body>
@@ -140,73 +183,45 @@
     </a>
 </div>
 
+<div class="bg-1">
 <div class="container text-center">
   <h3>THE BAND</h3>
   <p><em>We love music!</em></p>
   <p>We have created a fictional band website. Lorem ipsum..</p>
   <br>
-  <div class="row">
-    <div class="col-sm-4">
-      <p class="text-center"><strong>Name</strong></p><br>
-      <a href="#demo" data-toggle="collapse">
-        <img src="<c:url value="/resources/images/2.jpg" />" class="img-circle person" alt="Random Name" width="255" height="255">
-      </a>
-      <div id="demo" class="collapse">
-        <p>Guitarist and Lead Vocalist</p>
-        <p>Loves long walks on the beach</p>
-        <p>Member since 1988</p>
-      </div>
+  <div class="row text-center">
+  <div class="col-sm-4">
+    <div class="thumbnail">
+      <img src="<c:url value="/resources/images/2.jpg" />" alt="Paris">
+      <p><strong>Paris</strong></p>
+      <p>Fri. 27 November 2015</p>
+      <button class="btn">Buy Tickets</button>
     </div>
-    <div class="col-sm-4">
-      <p class="text-center"><strong>Name</strong></p><br>
-      <a href="#demo2" data-toggle="collapse">
-        <img src="<c:url value="/resources/images/2.jpg" />" class="img-circle person" alt="Random Name" width="255" height="255">
-      </a>
-      <div id="demo2" class="collapse">
-        <p>Drummer</p>
-        <p>Loves drummin'</p>
-        <p>Member since 1988</p>
-      </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="thumbnail">
+      <img src="<c:url value="/resources/images/2.jpg" />" alt="New York">
+      <p><strong>New York</strong></p>
+      <p>Sat. 28 November 2015</p>
+      <button class="btn">Buy Tickets</button>
     </div>
-    <div class="col-sm-4">
-      <p class="text-center"><strong>Name</strong></p><br>
-      <a href="#demo3" data-toggle="collapse">
-        <img src="<c:url value="/resources/images/2.jpg" />" class="img-circle person" alt="Random Name" width="255" height="255">
-      </a>
-      <div id="demo3" class="collapse">
-        <p>Bass player</p>
-        <p>Loves math</p>
-        <p>Member since 2005</p>
-      </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="thumbnail">
+      <img src="<c:url value="/resources/images/2.jpg" />" alt="San Francisco">
+      <p><strong>San Francisco</strong></p>
+      <p>Sun. 29 November 2015</p>
+      <button class="btn">Buy Tickets</button>
     </div>
+  </div>
+</div>
+      </div>
+      <%@include file="footer.jsp" %>
   </div>
 </div>
 
 <!-- footer section -->
-<footer class='footer section--large'>
-   
 
-<div class= 'container-wrapper text-center'>
-<form class="form-inline">
-  <div class="form-group">
-    <label for="home"><a href="<c:url value="/home" />">Home </a>&nbsp</label>
-  </div>
-  
-  <div class="form-group">
-    <label for="features"><a href="<c:url value="/about" />">Contact</a> &nbsp</label>
-  </div>
-<div class="form-group">
-    <label for="About"><a href="<c:url value="/about" />">About</a></label>
-  </div>
-</form>
-</div>
-    <div class='container-wrapper text-center footer__copyright'>
-      © <script>document.write(new Date().getFullYear());</script> BookStore.Me Inc. All rights reserved.
-      <a href='/legal/terms'>Terms of Service</a>
-      &
-      <a href='/legal/privacy'>Privacy Policy.</a>
-    </div>
-  </footer>
 
 </body>
 </html>

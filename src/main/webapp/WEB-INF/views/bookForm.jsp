@@ -23,7 +23,7 @@
 body {
    font: 400 15px/1.8 Lato, sans-serif; 
        color: #777; 
-        background: whitesmoke; 
+        background: #333; 
 }
 
 </style>
@@ -76,7 +76,6 @@ body {
  <form:label  class="control-label  col-sm-2"  path="category">Category</form:label>
             <form:errors path="publisher" cssStyle="color: #ff0000" />
             <div   class="col-sm-10">
-            
            <form:radiobutton path="category.cid" value="1" class="form-Control"/>NEW ENTRY
      <form:radiobutton path="category.cid" value="2" class="form-Control"/>SPECIAL EDITION 
      <form:radiobutton path="category.cid" value="3" class="form-Control"/>DISCOUNT 
@@ -143,4 +142,5 @@ body {
  --%>
 
 </body>
+ <%@ include file="footer.jsp" %>
 </html>

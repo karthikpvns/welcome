@@ -17,6 +17,7 @@ import com.spring.model.CartItem;
 import com.spring.model.Customer;
 import com.spring.services.BookService;
 import com.spring.services.CartItemService;
+import com.spring.services.CartService;
 import com.spring.services.CustomerServices;
 
 @Controller
@@ -30,6 +31,16 @@ public class CartItemController {
 
 	@Autowired
 		private CartItemService cartItemService;
+	@Autowired
+	private CartService cartService;
+
+	public CartService getCartService() {
+		return cartService;
+	}
+
+	public void setCartService(CartService cartService) {
+		this.cartService = cartService;
+	}
 
 	public CartItemService getCartItemService() {
 		return cartItemService;
@@ -85,4 +96,18 @@ public class CartItemController {
 	cartItem.setCart(cart);
 	cartItemService.addcartItem(cartItem);
 	}
+	
+	@RequestMapping("/cart/removecartitem/{cartItemId}")
+	@ResponseStatus(value=HttpStatus.NO_CONTENT)
+	public void removeCartItem(@PathVariable(value="cartItemId") int cartItemId){
+		cartItemService.removeCartItem(cartItemId);
+		
+	}
+	@RequestMapping("/cart/removeAllItems/{cartId}")
+	@ResponseStatus(value=HttpStatus.NO_CONTENT)
+	public void removeAllItems(@PathVariable(value="cartId") int cartId){
+		Cart cart=cartService.getCartById(cartId);
+		cartItemService.removeAllCartItems(cart);
+	}
+	
 }

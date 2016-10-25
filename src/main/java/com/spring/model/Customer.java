@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 public class Customer {
@@ -29,8 +31,10 @@ private BillingAddress billingAddress;
 @OneToOne(cascade=CascadeType.ALL)
 @JoinColumn(name="shippingaddressId")
 private ShippingAddress shippingAddress;
+
 @OneToOne(cascade=CascadeType.ALL)
 @JoinColumn(name="cartId")
+@JsonIgnore
 private Cart cart;
 
 public int getCustomerId() {

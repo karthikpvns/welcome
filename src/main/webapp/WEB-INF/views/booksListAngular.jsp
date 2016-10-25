@@ -27,16 +27,36 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <%--  <script src="<c:url value="/resources/js/controller.js"></c:url>"></script>  --%>
-</head>
-<body>
-<div ng-app="app" ng-controller="myController" ng-init="getBookList()">
 
-Search :<input type="text" ng-model="SearchCondition" placeholder="Search Book">
+<style type="text/css">
+body { 
+       font: 400 15px/1.8 Lato, sans-serif; 
+       color: #777; 
+        background: #333; 
+   } 
+  
+</style>
+</head>
+
+<body>
+<div class="container-wrapper">
+
+<div class="container">
+
+ <div class="page-header">
+            <h1>All Items!!!!</h1>
+
+            <p class="lead">View all the  products available. !!</p>
+        </div>
         
+<div ng-app="app" ng-controller="myController" ng-init="getBookList()">
+<div>
+  <h4 align="right"> Search : <input type="text" ng-model="SearchCondition" placeholder="Search Book"></h4>
+ </div>       
 <br>
-<table    class="table table-striped table-hover">
+<table    class="table ">
 <thead>
-<tr class="bg-info">
+<tr class="">
 <th>Image</th>
 <th>ISBN</th>
 <th> TITLE</th>
@@ -97,6 +117,6 @@ var app=angular.module("app",[])
 
 </script>
 
-
 </body>
+ <%@ include file="footer.jsp" %>
 </html>

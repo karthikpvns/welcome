@@ -28,15 +28,11 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js" ></script>
 <style type="text/css">
 
-.container-wrapper {
-   /* height:80%;*/
-   
-/*     margin-top: 80px; */
-/*     margin-bottom: 300px;
-whitesmoke */
-   background: whitesmoke; 
+body {
+   font: 400 15px/1.8 Lato, sans-serif; 
+       color: #777; 
+        background: #333; 
 }
-
 
 </style>
 </head>
@@ -205,8 +201,6 @@ whitesmoke */
 </div>
 </div>
 
-
-
-
 </body>
+<%@include file="footer.jsp" %>
 </html>

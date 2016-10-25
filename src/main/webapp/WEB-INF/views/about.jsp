@@ -28,7 +28,7 @@
   body { 
        font: 400 15px/1.8 Lato, sans-serif; 
        color: #777; 
-        background: whitesmoke; 
+        background: #333; 
    } 
   
   
@@ -70,7 +70,8 @@
       <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea>
       <div class="row">
         <div class="col-md-12 form-group">
-          <button class="btn pull-right" type="submit">Send</button>
+          <br>
+          <button class="btn  pull-right" type="submit">Send</button>
         </div>
       </div> 
     </div>
@@ -78,5 +79,5 @@
 </div>
  
 </body>
-<%-- <%@ include file="footer.jsp" %> --%>
+ <%@ include file="footer.jsp" %> 
 </html>

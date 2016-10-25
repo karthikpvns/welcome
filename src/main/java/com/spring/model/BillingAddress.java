@@ -9,10 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 @Entity
-public class BillingAddress implements Serializable {
+public class BillingAddress  {
 	
-	
-	private static final long serialVersionUID = -6091579459463730482L;
 	
 	@Id
     @GeneratedValue(strategy=GenerationType.AUTO)

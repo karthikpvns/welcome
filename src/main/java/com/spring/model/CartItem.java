@@ -7,20 +7,32 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class CartItem {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int cartItemId;
+	
 	private int quantity;
+	
 	private double price;
+	
 	@ManyToOne
 	@JoinColumn(name="isbn")
 	private Book book;
+	
 	@ManyToOne
 	@JoinColumn(name="cartId")
+	@JsonIgnore
 	private Cart cart;
+	
+	
+	
+	
 	public int getCartItemId() {
 		return cartItemId;
 	}
