@@ -1,5 +1,7 @@
 package com.spring.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,7 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 @Table(name="bookapp")
-public class Book {
+public class Book implements Serializable {
 	@Id
 	@Column(name="isbn")
 	@GeneratedValue(strategy=GenerationType.AUTO)

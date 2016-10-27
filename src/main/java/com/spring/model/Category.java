@@ -1,5 +1,6 @@
 package com.spring.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -11,7 +12,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="bookcategories")
-public class Category {
+public class Category implements Serializable {
 
 	@Id
 	private int cid;

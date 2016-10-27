@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 @Entity
-public class BillingAddress  {
+public class BillingAddress implements Serializable  {
 	
 	
 	@Id

@@ -38,10 +38,15 @@ public class CartItemDaoImpl implements CartItemDao {
 	
 		Session session=sessionFactory.openSession();
 		CartItem cartItem=(CartItem) session.get(CartItem.class, cartItemId);
+		//session.delete(cartItem);
+		//session.flush();
+		//session.close();
+		Cart cart=cartItem.getCart();
+		List<CartItem> cartItems=cart.getCartItem();
+		cartItems.remove(cartItem);
 		session.delete(cartItem);
 		session.flush();
-		//session.close();
-		
+		session.close();
 	}
 
 	public void removeAllCartItems(Cart cart) {

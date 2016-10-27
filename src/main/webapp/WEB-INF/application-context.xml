@@ -8,6 +8,7 @@
     xmlns:mvc="http://www.springframework.org/schema/mvc" 
     xmlns:websocket="http://www.springframework.org/schema/websocket"
     xmlns:security="http://www.springframework.org/schema/security"
+    xmlns:webflow-config="http://www.springframework.org/schema/webflow-config"
     xsi:schemaLocation="http://www.springframework.org/schema/beans  
 http://www.springframework.org/schema/beans/spring-beans.xsd  
 http://www.springframework.org/schema/context  
@@ -19,7 +20,9 @@ http://www.springframework.org/schema/mvc/spring-mvc.xsd
     http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
 		http://www.springframework.org/schema/security
-                           http://www.springframework.org/schema/security/spring-security.xsd">  
+        http://www.springframework.org/schema/security/spring-security.xsd
+        http://www.springframework.org/schema/webflow-config 
+        http://www.springframework.org/schema/webflow-config/spring-webflow-config.xsd">  
     
     <!-- org.apache.commons.dbcp.BasicDataSource -->
     
@@ -60,12 +63,42 @@ http://www.springframework.org/schema/mvc/spring-mvc.xsd
 </list>
 </property>
 </bean>
-<!-- 
-<context:component-scan base-package="com.man.controller"/>
-<context:component-scan base-package="com.man.dao"/>
-<context:component-scan base-package="com.man.model"/>
-<context:component-scan base-package="com.man.service"/>
+
+<!-- <bean id="cartDaoImpl" class="com.spring.dao.CartDaoImpl" >
+</bean>
  -->
+ <!-- <bean id="cartDaoImpl" class="com.spring.dao.CartDaoImpl" >
+<property name="sessionFactory" ref="sessionFactory"></property>
+</bean> -->
+
+<bean id="cartDao" class="com.spring.dao.CartDaoImpl" >
+<property name="sessionFactory" ref="sessionFactory"></property>
+<property name="customerOrderService" ref="customerOrderService"></property>
+</bean>
+
+<bean id="customerOrderService" class="com.spring.services.CustomerOrderServiceImpl">
+<property name="customerOrderDao" ref="customerOrderDao"></property>
+<property name="cartService" ref="cartService"></property>
+</bean>
+
+<bean id="customerOrderDao" class="com.spring.dao.CustomerOrderDaoImpl">
+<property name="sessionFactory" ref="sessionFactory"></property>
+</bean>
+
+<bean id="cartService" class="com.spring.services.CartServiceImpl">
+<property name="cartDao" ref="cartDao"></property>
+</bean>
+
+<bean id="cartItemDaoImpl" class="com.spring.dao.CartItemDaoImpl">
+<property name="sessionFactory" ref="sessionFactory"></property>
+</bean>
+
+
+<!-- <context:component-scan base-package="com.spring.controller"/>
+<context:component-scan base-package="com.spring.dao"/>
+<context:component-scan base-package="com.spring.model"/>
+<context:component-scan base-package="com.spring.service"/> -->
+
  
  <security:http auto-config="true" use-expressions="true" >
  <security:intercept-url pattern="/index/**" access="permitAll"/>
@@ -91,8 +124,16 @@ http://www.springframework.org/schema/mvc/spring-mvc.xsd
  
  </security:authentication-manager>
  
- 
-
+ <webflow-config:flow-executor id="flowExecutor" flow-registry="flowRegistry"/>
+ <webflow-config:flow-registry id="flowRegistry" base-path="/WEB-INF/flows">
+ <webflow-config:flow-location id="checkout" path="/checkout/checkout-flow.xml"/>
+ </webflow-config:flow-registry>
+ <bean class="org.springframework.webflow.mvc.servlet.FlowHandlerMapping" id="flowHandlerMapping">
+ <property name="flowRegistry" ref="flowRegistry"/>
+ </bean>
+<bean class="org.springframework.webflow.mvc.servlet.FlowHandlerAdapter" id="flowHandlerAdapter">
+<property name="flowExecutor" ref="flowExecutor"/>
+</bean>
  
 
 <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">

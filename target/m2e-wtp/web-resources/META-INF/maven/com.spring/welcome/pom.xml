@@ -16,6 +16,7 @@
     </dependency>
     
     
+    
      <dependency>
     <groupId>org.springframework</groupId>
     <artifactId>spring-context</artifactId>
@@ -93,16 +94,30 @@
   		<version>2.5.1</version>
   	</dependency>
     
+     <dependency>
+     <groupId>org.springframework.webflow</groupId>
+     <artifactId>spring-webflow</artifactId>
+     <version>2.4.1.RELEASE</version>
+     </dependency>
     
-    
-    
+     <dependency>
+     <groupId>org.springframework.webflow</groupId>
+     <artifactId>spring-binding</artifactId>
+     <version>2.4.2.RELEASE</version>
+     </dependency>
+     
+      <dependency>
+     <groupId>org.springframework.webflow</groupId>
+     <artifactId>spring-js</artifactId>
+     <version>2.4.2.RELEASE</version>
+     </dependency>
     
     <dependency>
     <groupId>com.h2database</groupId>
     <artifactId>h2</artifactId>
     <version>1.4.192</version>
     </dependency>
-    
+   
     
     
     <dependency>

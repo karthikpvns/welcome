@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 @Entity
-public class ShippingAddress  {
+public class ShippingAddress  implements Serializable {
 
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)

@@ -53,7 +53,15 @@
  <span class="glyphicon glyphicon-remove-sign">
  </span> Clear Cart
 </a>
+
+<a class="btn btn-success pull-right" href="<c:url value="/order/${cartId}"/>">
+ <span class="glyphicon glyphicon-shopping-cart">
+ </span> CheckOut
+</a>
+
 </div>
+
+
 
 <br><br>
 <table    class="table  ">
