@@ -185,9 +185,9 @@
 
 <div class="bg-1">
 <div class="container text-center">
-  <h3>THE BAND</h3>
-  <p><em>We love music!</em></p>
-  <p>We have created a fictional band website. Lorem ipsum..</p>
+  <h3>FESTIVAL SEASON</h3>
+  <p><em>New Books Coming This Month!</em></p>
+  <p>Limited Offer..Register Quickly Inorder To Buy...</p>
   <br>
   <div class="row text-center">
   <div class="col-sm-4">

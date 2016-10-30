@@ -14,6 +14,15 @@
  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style type="text/css">
+
+body {
+   font: 400 15px/1.8 Lato, sans-serif; 
+       color: #777; 
+        background: #333; 
+}
+
+</style>
 </head>
 
 <body>
@@ -31,53 +40,63 @@
         <h3>Basic Info:</h3>
 
         <div class="form-group">
-            <label for="name">Name</label>
+            <label class="control-label  col-sm-2"  for="name">Name</label>
+             <div class="col-sm-10">
             <form:input path="cart.customer.customerName" id="name" class="form-Control" />
         </div>
-
+        </div>
         <div class="form-group">
-            <label for="email">Email</label>
+            <label class="control-label  col-sm-2"  for="email">Email</label>
+             <div class="col-sm-10">
             <form:input path="cart.customer.customerEmail" id="email" class="form-Control" />
         </div>
+        </div>
 
         <div class="form-group">
-            <label for="phone">Phone</label>
+            <label class="control-label  col-sm-2"  for="phone">Phone</label>
+             <div class="col-sm-10">
             <form:input path="cart.customer.customerPhone" id="phone" class="form-Control" />
-        </div>
+        </div></div>
 
         <br/>
 
         <h3>Billing Address:</h3>
 
         <div class="form-group">
-            <label for="billingStreet">Street Name</label>
+            <label  class="control-label  col-sm-2"  for="billingStreet">Street Name</label>
+            <div class="col-sm-10">
             <form:input path="cart.customer.billingAddress.streetName" id="billingStreet" class="form-Control" />
-        </div>
+        </div></div>
 
         <div class="form-group">
-            <label for="billingApartmentNumber">Apartment Number</label>
+            <label class="control-label  col-sm-2"  for="billingApartmentNumber">Apartment Number</label>
+             <div class="col-sm-10">
             <form:input path="cart.customer.billingAddress.apartmentNumber" id="billingApartmentNumber" class="form-Control" />
-        </div>
+        </div></div>
 
         <div class="form-group">
-            <label for="billingCity">City</label>
+            <label class="control-label  col-sm-2"  for="billingCity">City</label>
+             <div class="col-sm-10">
             <form:input path="cart.customer.billingAddress.city" id="billingCity" class="form-Control" />
-        </div>
+        </div></div>
 
         <div class="form-group">
-            <label for="billingState">State</label>
+            <label class="control-label  col-sm-2"  for="billingState">State</label>
+             <div class="col-sm-10">
             <form:input path="cart.customer.billingAddress.state" id="billingState" class="form-Control" />
-        </div>
+        </div></div>
 
         <div class="form-group">
-            <label for="billingCountry">Country</label>
+            <label class="control-label  col-sm-2"  for="billingCountry">Country</label>
+             <div class="col-sm-10">
             <form:input path="cart.customer.billingAddress.country" id="billingCountry" class="form-Control" />
-        </div>
+        </div></div>
 
         <div class="form-group">
-            <label for="billingZip">Zipcode</label>
+            <label  class="control-label  col-sm-2"  for="billingZip">Zipcode</label>
+             <div class="col-sm-10">
             <form:input path="cart.customer.billingAddress.zipCode" id="billingZip" class="form-Control" />
-        </div>
+        </div></div>
 
         <input type="hidden" name="_flowExecutionKey" />
 
@@ -85,9 +104,9 @@
         <!--  on attribute - assign event id -->
         <!--  to attribute id value in state -->
 
-        <input type="submit" value="Next" class="btn btn-default" name="_eventId_customerInfoCollected" />
+        <input type="submit" value="Next" class="btn btn-info" name="_eventId_customerInfoCollected" />
 
-        <button class="btn btn-default"    name="_eventId_cancel">Cancel</button>
+        <button class="btn btn-info"    name="_eventId_cancel">Cancel</button>
         </form:form>
         </div></div>
 

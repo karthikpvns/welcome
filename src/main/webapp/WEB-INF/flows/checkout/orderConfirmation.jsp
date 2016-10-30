@@ -4,6 +4,7 @@
 <%@ page isELIgnored="false" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <jsp:useBean id="now" class="java.util.Date" />
 <%@include file="/WEB-INF/views/header.jsp" %>
@@ -15,6 +16,15 @@
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style type="text/css">
+
+body {
+   font: 400 15px/1.8 Lato, sans-serif; 
+       color: #777; 
+        background: #333; 
+}
+
+</style>
 </head>
 <body>
 
@@ -71,7 +81,7 @@
                                 <thead>
                                     <tr>
                                         <td>Product</td>
-                                        <td>#</td>
+                                        <td>Quantity</td>
                                         <td class="text-center">Price</td>
                                         <td class="text-center">Total</td>
                                     </tr>
@@ -106,11 +116,11 @@
 
                         <br/><br/>
 
-                        <button class="btn btn-default" name="_eventId_backToCollectShippingDetail">Back</button>
+                        <button class="btn btn-info" name="_eventId_backToCollectShippingDetail">Back</button>
 
-                        <input type="submit" value="Submit Order" class="btn btn-default" name="_eventId_orderConfirmed" />
+                        <input type="submit" value="Submit Order" class="btn btn-info" name="_eventId_orderConfirmed" />
 
-                        <button class="btn btn-default" name="_eventId_cancel">Cancel</button>
+                        <button class="btn btn-info" name="_eventId_cancel">Cancel</button>
                     </div>
                 </form:form>
             </div>

@@ -14,6 +14,15 @@
  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style type="text/css">
+
+body {
+   font: 400 15px/1.8 Lato, sans-serif; 
+       color: #777; 
+        background: #333; 
+}
+
+</style>
 </head>
 <body>
 <%@ page isELIgnored="false" %>
@@ -31,45 +40,51 @@
         <h3>Shipping Address:</h3>
 
         <div class="form-group">
-            <label for="shippingStreet">Street Name</label>
+            <label class="control-label col-sm-2" for="shippingStreet">Street Name</label>
+             <div class="col-sm-10">
             <form:input path="cart.customer.shippingAddress.streetName" id="shippingStreet" class="form-Control" />
-        </div>
+        </div></div>
 
         <div class="form-group">
-            <label for="shippingApartmentNumber">Apartment Number</label>
+            <label class="control-label col-sm-2" for="shippingApartmentNumber">Apartment Number</label>
+             <div class="col-sm-10">
             <form:input path="cart.customer.shippingAddress.apartmentNumber" id="shippingApartmentNumber" class="form-Control" />
-        </div>
+        </div></div>
 
         <div class="form-group">
-            <label for="shippingCity">City</label>
+            <label class="control-label col-sm-2" for="shippingCity">City</label>
+             <div class="col-sm-10">
             <form:input path="cart.customer.shippingAddress.city" id="shippingCity" class="form-Control" />
-        </div>
+        </div></div>
 
         <div class="form-group">
-            <label for="shippingState">State</label>
+            <label  class="control-label col-sm-2" for="shippingState">State</label>
+             <div class="col-sm-10">
             <form:input path="cart.customer.shippingAddress.state" id="shippingState" class="form-Control" />
-        </div>
+        </div></div>
 
         <div class="form-group">
-            <label for="shippingCountry">Country</label>
+            <label  class="control-label col-sm-2" for="shippingCountry">Country</label>
+             <div class="col-sm-10">
             <form:input path="cart.customer.shippingAddress.country" id="shippingCountry" class="form-Control" />
-        </div>
+        </div></div>
 
         <div class="form-group">
-            <label for="shippingZip">Zipcode</label>
+            <label  class="control-label col-sm-2" for="shippingZip">Zipcode</label>
+             <div class="col-sm-10">
             <form:input path="cart.customer.shippingAddress.zipCode" id="shippingZip" class="form-Control" />
-        </div>
+        </div></div>
 
         
         <input type="hidden" name="_flowExecutionKey" />
 
         <br/><br/>
 
-        <button class="btn btn-default" name="_eventId_backToCollectCustomerInfo">Back</button>
+        <button class="btn btn-info" name="_eventId_backToCollectCustomerInfo">Back</button>
 
-        <input type="submit" value="Next" class="btn btn-default" name="_eventId_shippingDetailCollected" />
+        <input type="submit" value="Next" class="btn btn-info" name="_eventId_shippingDetailCollected" />
 
-        <button class="btn btn-default" name="_eventId_cancel">Cancel</button>
+        <button class="btn btn-info" name="_eventId_cancel">Cancel</button>
 
         </form:form>
         </div></div>

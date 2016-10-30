@@ -14,6 +14,15 @@
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style type="text/css">
+
+body {
+   font: 400 15px/1.8 Lato, sans-serif; 
+       color: #777; 
+        background: #333; 
+}
+
+</style>
 </head>
 <body>
 <div class="container-wrapper">
@@ -29,11 +38,10 @@
         </section>
 
         <section class="container">
-            <p><a href="<spring:url value="/" />" class="btn btn-default">OK</a></p>
+            <p><a href="<spring:url value="/home" />" class="btn btn-info">OK</a></p>
         </section>
 
+
 <%@ include file="/WEB-INF/views/footer.jsp" %>
-
-
 </body>
 </html>
